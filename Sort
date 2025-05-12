@@ -4,5 +4,11 @@ proc sort data=pg1.storm_summary out=storm_sort;
      by descending MaxWindMPH; (ascending is default)
  run; 
 
-
+-------------------------------------------------------------------------------------------------------------------
 # Removing duplicates
+proc sort data=pg1.storm_summary 
+          out=test_clean      # sorted result #
+          dupout=test_dups    # duplicate result #
+          nodupkey;           # statement for remove duplicates #
+     by name;                 # could be column name, or _all_  to remove entirely duplicate contents #
+run;
