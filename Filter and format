@@ -1,0 +1,22 @@
+# Macro Variable, Where
+%let ParkCode=ZION;
+%let SpeciesCat=Bird;
+proc freq data=pg1.np_species;
+	tables Abundance Conservation_Status;
+	where Species_ID like "&ParkCode%" and Category="&SpeciesCat"; # add & before the macrovaraiable, and double quotation mark#
+run;
+
+proc print data=pg1.np_species;
+	var Species_ID Category Scientific_Name Common_Names;
+	where Species_ID like "&ParkCode%" and Category="&SpeciesCat";
+run;
+
+#Format
+proc print data=pg1.storm_summary(obs=20);
+	format Lat Lon 4. StartDate EndDate date11.; # Lat and Lon are column name, 4. means width is 4 and no decimal point.#
+run;
+
+proc freq data=pg1.storm_summary order=freq;
+	tables StartDate;
+	format startdate monname. ; # date11. and monname are approaches to display date #
+run;
