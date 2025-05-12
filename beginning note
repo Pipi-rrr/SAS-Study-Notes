@@ -1,0 +1,33 @@
+# set up a connection between SAS and file location, called library 
+libname pg1 "/home/u64222136/EPG1V2/data";
+
+#import unstructured data
+proc import datafile="FILEPATH/storm_damage.tab"
+            dbms=tab out=storm_damage_tab  replace;  #dbms define the file type, replace overwrite the output table
+run; 
+
+# import excel file into SAS
+proc import datafile="/home/u64222136/EPG1V2/data/np_info.xlsx"
+            dbms=XLSX out=work.class_import  replace;  
+            sheet=class_test # choose one sheet in an excel file. Excel file can be seen as a tables collection #
+run; 
+
+# read excel file directly （license need)
+options validvarname=v7;    #standard the column name#
+libname NP xlsx "/home/u64222136/EPG1V2/data/np_info.xlsx";
+proc contents data=NP.PARKS;
+run;
+libname NP clear; #remove the connection#
+
+# Macro Variable, Where
+%let ParkCode=ZION;
+%let SpeciesCat=Bird;
+proc freq data=pg1.np_species;
+	tables Abundance Conservation_Status;
+	where Species_ID like "&ParkCode%" and Category="&SpeciesCat"; # add & before the macrovaraiable, and double quotation mark#
+run;
+
+proc print data=pg1.np_species;
+	var Species_ID Category Scientific_Name Common_Names;
+	where Species_ID like "&ParkCode%" and Category="&SpeciesCat";
+run;
