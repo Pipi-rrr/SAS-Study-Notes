@@ -23,5 +23,5 @@ proc freq data=pg1.storm_summary order=freq;
 run;
 
 -------------------------------------------------------------------------------------------------------------------
-# use upcase(), the content in "" would be not sensitive "
+# use upcase(), the content in "" would be not sensitive #
 where upcase(Common_Names) like '%FOX%' and upcase(Common_Names) not like "%SQUIRREL%";
