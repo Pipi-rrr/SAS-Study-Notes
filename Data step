@@ -1,0 +1,7 @@
+# creat a permanent table, filter column, output limited column #
+libname output '/home/u64222136/EPG1V2/output';    # set a library for permanent preserve #
+data output.Storm_cat5;                            # output table #
+	set pg1.storm_summary;                           # input table #
+	where MaxWindMPH>=156 and StartDate>="01JAN2000"d;    # filter column. ATTENTION date format: "date"d #
+	keep Season Basin Name Type MaxWindMPH;               # keep statement leave column which is written, drop statement remove column which is written #
+run;
