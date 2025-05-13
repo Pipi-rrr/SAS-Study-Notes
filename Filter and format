@@ -21,3 +21,7 @@ proc freq data=pg1.storm_summary order=freq;
 	tables StartDate;
 	format startdate monname. ; # date11. and monname are approaches to display date #
 run;
+
+-------------------------------------------------------------------------------------------------------------------
+# use upcase(), the content in "" would be not sensitive "
+where upcase(Common_Names) like '%FOX%' and upcase(Common_Names) not like "%SQUIRREL%";
