@@ -1,0 +1,17 @@
+# Multiple executable statements in if statement #
+if expression then do;
+        executable statements;
+    End;
+
+e.g.
+data front rear;                        # processing over 2 files is ok #
+    set sashelp.cars;
+    if DriveTrain="Front" then do;
+        DriveTrain="FWD";
+        output front;                  # output statement can only come last #
+    End;
+    else if DriveTrain='Rear' then do;
+        DriveTrain="RWD";
+        output rear;
+    End;
+run;
