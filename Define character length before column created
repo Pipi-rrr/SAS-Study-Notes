@@ -1,0 +1,11 @@
+# Length statement before creating character column by if statement #
+length columnname $length
+
+e.g.
+data cars;
+  set sashelp.cars;
+  length CarType $6;                   # if without length statement, the length of created column would be as the first if statement. 
+                                          In this case, column length will be 5, then "luxury" would be "luxur" #
+  if Acolumn<1000 then CarType="Basic";
+  else CarType="Luxury" ;
+run;
