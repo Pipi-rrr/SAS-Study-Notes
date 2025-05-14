@@ -1,4 +1,27 @@
 # Basic statement #
-column-name= expression
-e.g  Profit=colunm1-column2;
+columnname= expression
 
+e.g.  Profit=colunm1-column2;
+
+-------------------------------------------------------------------------------------------------------------------
+# Numeric function #
+columnname= functior(argument1,argument2,....);
+
+e.g.  
+SUM (num1, num2, ...)
+RANGE (num1, num2, ...)
+MIN (num1, num2, ...)
+
+-------------------------------------------------------------------------------------------------------------------
+# Character function #
+columnname= functior();
+
+e.g.
+UPCASE (char)
+LOWCASE(char)
+PROPCASE (char, <delimiters>)
+CATS (char1, char2, ...)
+SUBSTR (char, position, <length>)
+
+# If I want to make Basin column all in uppercase, the manipulation is:
+Basin=upcase(basin);    # new result will overwrite the original one #
