@@ -15,3 +15,13 @@ data front rear;                        # processing over 2 files is ok #
         output rear;
     End;
 run;
+
+# another expression #
+if type='NP' then do;
+        ParkType='Park';
+        output parks;
+    end;
+    else do;                         # use 'else do' instead of 'else if then do' #
+        ParkType='Monument';
+        output monuments;
+    end;
