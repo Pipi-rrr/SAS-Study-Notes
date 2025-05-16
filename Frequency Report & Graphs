@@ -1,0 +1,8 @@
+ods graphics on;                              # 打开图表 #
+ods noproctitle;                              # 不显示自动标题 #
+title "Categories of Reported Species";
+title2 "in the Everglades";
+proc freq data=pg1.np_species order=freq;     # order=freq sequence report in descending frequencies #
+	tables Category /nocum  PLOTS=FREQPLOT;     # plot=freqplot 设定了柱形图，其他如boxplot, boxplot展示其他类型图表 #
+	where Species_ID like '%EVER%' and Category ne "Vascular Plant";       # where like后内容最好用单引号''，否则可能报错 #
+run;
