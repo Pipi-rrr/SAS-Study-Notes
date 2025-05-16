@@ -1,0 +1,16 @@
+PROC MEANS DATA=input-table <stat-list> <options>;
+        VAR col-name(s);
+        CLASS col-name(s);
+        WAYS n;
+        OUTPUT OUT=output-table <statistic(col-name)=col-name> < / option(s);
+RUN;
+
+
+e.g.
+proc means data=pg1.np_westweather;
+	where Precip ne 0;
+	var Precip;
+	class Name Year;
+	output out=rainstats N=RainDays SUM=TotalRain;
+	ways 2;
+run;
