@@ -1,0 +1,7 @@
+retain column initial value
+e.g.
+data 111;
+  set 222;
+  retain YTDrain 0;                 # value of YTDrain column will be retained, and the initial value is 0 #
+  YTDrain=YTDrain + DailyRain;
+run;
