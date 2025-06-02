@@ -13,3 +13,20 @@ data 111;
   retain YTDrain 0;                 
   YTDrain=sum(YTDrain, DailyRain);  # if there's missing value(like .) in DailyRain column, the following results of YTDrain will miss. #
 run;
+
+________________________________________________________________________________________________________________
+simple way using sum statement
+
+column + expression;        # new accumulating column + column to add #
+e.g.
+data 111;
+  set 222;
+  YTDrain + DailyRain;     
+run;
+*****************************************************
+*  sum statement can automatically do:              *
+*  1. creat new accumulating column;                *
+*  2. set initial value of new column to 0;         *
+*  3. retain value of new column;                   *
+*  4. add right column to accumulate for each row.  *
+*****************************************************
