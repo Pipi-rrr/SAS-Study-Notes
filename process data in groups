@@ -1,0 +1,9 @@
+# 先用proc sort排序，再用data 来分组 #
+proc sort data= aaa;
+  by bbb;
+run;
+
+data ccc;
+  set aaa;
+  by bbb;
+run;
