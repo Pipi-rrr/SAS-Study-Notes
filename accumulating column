@@ -5,3 +5,11 @@ data 111;
   retain YTDrain 0;                 # value of YTDrain column will be retained, and the initial value is 0 #
   YTDrain=YTDrain + DailyRain;
 run;
+________________________________________________________________________________________________________________
+use sum statement to ignore missing value
+e.g.
+data 111;
+  set 222;
+  retain YTDrain 0;                 
+  YTDrain=sum(YTDrain, DailyRain);  # if there's missing value(like .) in DailyRain column, the following results of YTDrain will miss. #
+run;
