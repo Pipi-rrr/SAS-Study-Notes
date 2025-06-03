@@ -1,0 +1,9 @@
+call routine(argument1,argument2...);
+
+# 以下表达方式可以在call rountine和function里使用： #
+col1-col2        选择同名不同数字的列       e.g.   将column1到column4的值标记为缺失".": call missing(of column1-column4)    计算column1到column4的均值： mean(of column1-column4)
+string:          选择开头为某字符的列       e.g.   将c开头的列都标记为缺失: call missing(of c:)                              计算c开头的列的均值： mean(of c：)
+col--col         用处与col1-col2类似，但可以自由选择列，而不局限于同名不同数字的列     e.g.   将从cat开始的列，从左到右，直到apple列，都标记为缺失: call missing(of cat--apple:)    
+_numeric_        选择所有带数字的列
+_character_      选择所有带字符的列
+_all_            选择所有列
