@@ -1,0 +1,18 @@
+substr(column, start, length)             # 选取column中的某位置（start）开始的某长度内容 #
+e.g. BigCat=substr(Cat,1,3)               # 选取Cat列的第1位字符的内容开始的3个字符，作为新列 #
+
+COMPBL (string)                           # 把列中的多个空格合并为1个空格 #
+
+COMPRESS (string <, characters>)          # 将列中的某字符从列中删除 #
+e.g. BigCat=compress(Cat,'-')             # 将斜杠“-”从Cat列里全部删除 #
+     BigCat=compress(Cat,'- ')            # 讲斜杠“-”和空格“ ”从Cat列里全部删除 #
+
+STRIP (string)                            # 将列中头和尾的空格删除 #
+
+LENGTH (string)                           # 返回非空字符串的长度，不包括后面的空格；对于完全空白的字符串返回1 #
+
+ANYDIGIT (string)                         # 返回在字符串中找到数字的第一个位置 #
+
+ANYALPHA (string)                         # 返回在字符串中找到字母字符的第一个位置 #
+
+ANYPUNCT (string)                         # 返回在字符串中找到标点符号的第一个位置 #
