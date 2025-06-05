@@ -23,3 +23,9 @@ ANYDIGIT (string)                         # 返回在字符串中找到数字的
 ANYALPHA (string)                         # 返回在字符串中找到字母字符的第一个位置 #
 
 ANYPUNCT (string)                         # 返回在字符串中找到标点符号的第一个位置 #
+
+CAT (string1, ... stringn)                # 将字符串连接在一起，不删除前导或尾随空格 # #字符☑️ 数值☑️ #
+
+CATS (string1, ... stringn)               # 将字符串连接在一起，从每个字符串中删除前导或尾随空格 # #字符☑️ 数值☑️ #
+
+CATX ('delimiter', string1, ... stringn)  # 将字符串连接在一起，从每个字符串中删除前导或尾随空格，并在每个字符串之间插入分隔符 # #字符☑️ 数值☑️ #
