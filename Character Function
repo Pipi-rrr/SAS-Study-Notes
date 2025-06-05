@@ -27,5 +27,7 @@ ANYPUNCT (string)                         # 返回在字符串中找到标点符
 CAT (string1, ... stringn)                # 将字符串连接在一起，不删除前导或尾随空格 # #字符☑️ 数值☑️ #
 
 CATS (string1, ... stringn)               # 将字符串连接在一起，从每个字符串中删除前导或尾随空格 # #字符☑️ 数值☑️ #
+也能指定字符串之间用分隔符
+e.g. StormID2=cats(Name, '-', Season, Day);  # 只有Name列和Season列之间有分隔符“-” #
 
 CATX ('delimiter', string1, ... stringn)  # 将字符串连接在一起，从每个字符串中删除前导或尾随空格，并在每个字符串之间插入分隔符 # #字符☑️ 数值☑️ #
