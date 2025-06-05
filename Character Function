@@ -9,6 +9,10 @@ e.g. BigCat=compress(Cat,'-')             # 将斜杠“-”从Cat列里全部�
 
 STRIP (string)                            # 将列中头和尾的空格删除 #
 
+Scan(string, location, 'delimiter')       # 将字符中带有分隔符的单词取出。第二个参数指分隔符后位置，比如aa,bbb,c,dddd中，3就指c。第三个参数可以指定分隔符 #
+
+Find(string, substring, 'modifiers')      # 搜索字符串中的某特定字符所在的位置，返回数值，数值表示特定字符的位置。比如abcdef中，ef位置是5 #
+
 LENGTH (string)                           # 返回非空字符串的长度，不包括后面的空格；对于完全空白的字符串返回1 #
 
 ANYDIGIT (string)                         # 返回在字符串中找到数字的第一个位置 #
