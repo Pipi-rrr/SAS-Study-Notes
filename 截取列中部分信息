@@ -1,0 +1,4 @@
+Park=substr(ParkName, 1, find(ParkName,'NP')-2);
+
+# 把ParkName里 “NP” 之前的那一整段文字单独抓出来，存到变量 Park 中 #
+# 从第一位开始截。用find()找到NP的位置，NP前还有1个空格，所以-2。也就是NP的位置-2，就是NP前的内容长度 #
