@@ -7,8 +7,11 @@ run;
 e.g.
 proc format;
     value $regfmt 'C'='Complete'                 # 字符格式名 #
-                  'I'='Incomplete';         
+                  'I'='Incomplete'
+                  other= 'miscoded' ;            # other指所有不包含在前面条件的值 #
     value hrange 50 -< 57 = 'Below Average'         # 数字格式名，范围写法 #  # 此语句意为小于且不包含57 #
                  58 - 60 = 'Average'。              # 包含58和60 #
-                 61 <- 70 = 'Above Average' ;       # 不包含61 #
+                 61 <- 70 = 'Above Average'         # 不包含61 #
+                 low -< 58 = 'Below Average'        # 小于58的任何数，包括0和负数 #
+                 60 -< high = 'Above Average'       # 大于60的任何数 #
 run;
