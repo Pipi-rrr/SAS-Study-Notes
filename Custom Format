@@ -15,3 +15,6 @@ proc format;
                  low -< 58 = 'Below Average'        # 小于58的任何数，包括0和负数 #
                  60 -< high = 'Above Average'       # 大于60的任何数 #
 run;
+
+# put()的用法：类似于format，但是可以生成新列 #
+newChar = put(sourceValue , format.);
