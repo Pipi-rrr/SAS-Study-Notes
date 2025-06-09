@@ -1,7 +1,7 @@
-proc format
+proc format;
     value format-name value-or-range = 'formatted-value'             # 字符格式名要以$开头，且只能包含字母和下划线；数字格式名可用字母或下划线开头 #
                       value-or-range = 'formatted-value'
-                      ...
+                      ...;
 run;
 
 e.g.
