@@ -18,3 +18,28 @@ run;
 
 # put()的用法：类似于format，但是可以生成新列 #
 newChar = put(sourceValue , format.);
+-------------------------------------------------------------------------------------------------------------------------------------------
+# 从一个表中导入Format #
+data sbdata;                                                         # 定义一个表 #
+    retain FmtName '$sbfmt';                                         # 定义FmtName，设置格式名为 $sbfmt #
+    set pg2.storm_subbasincodes(rename=(Sub_Basin=Start 
+                                        SubBasin_Name=Label));       # 将特定的列rename为start,end,label #
+    keep Start Label FmtName;                                        # 仅保留格式名，以及设置格式的值 #
+run;
+proc format cntlin=sbdata;                                           # 设定格式，使用cntlin=前面定义的表。cntlin的意思是control input #
+run;
+-------------------------------------------------------------------------------------------------------------------------------------------
+# 查找定义的格式的属性 #
+proc format fmtlib library=work;
+	select $sbfmt catfmt;                  # 选择特定格式 #
+run;
+-------------------------------------------------------------------------------------------------------------------------------------------
+# 将定义好的格式永久存储 #
+proc format library=pg2.formats；
+proc format library=pg2;                  # 系统会自动在指定library建立formats文件夹，并存储 #
+proc format lib=pg2;  
+-------------------------------------------------------------------------------------------------------------------------------------------
+# 在利用定义的格式前，告诉系统该在哪里找到定义的格式 #
+options fmtsearch=(pg2.formats);
+proc print....
+proc mean...
