@@ -35,7 +35,7 @@ data output-table;
   merge input-table1(in=inTable1)
         input-table2(in=inTable2);                                # (in=)创建的列只显示在PDV中，值0表示该列不含此表的内容，值1表示包含此表的内容 #
   by column1; 
-  if inTable1=1 or inTable2=1;                                    # 仅输出同时包含两个表内容的列 #
+  if inTable1=1 and inTable2=1;                                    # 仅输出同时包含两个表内容的列 #
 run;
 
 
