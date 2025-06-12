@@ -1,0 +1,33 @@
+# 用SQL来合并表 #
+proc sql;
+  select tableA.E, A, B, C*2.5 as H, D format=5.1;           # 选择需要的列，并指定哪个表的同名列作为新表的列。可以直接修改列的值并生成新列（把C列的值乘2.5，生成H列）。然后确定格式 #
+  from tableA inner join tableB                    # 选择要合并的表A和表B #             
+  on tableA.E=tableB.E                             # 选择作为合并标准的列 #
+  order by A desc, B;                              # 在SQL里，可以直接排序 #
+quit;
+*** 在SQL中，可以给表名定义昵称，以方便引用 ***
+from tableA as TA
+      inner join tableB as TB
+on TA.E=TB.E;
+-----------------------------------------------------------------------------------------------------------------------------------------------
+# 用data合并列完全相同的表 #
+data output-table;
+  length column2 $10.;                                           # 统一列长度 #
+  set input-table1 input-table2(rename=(column1=column2));       # 将同内容但不同列名的列改名 #
+  column1=upcase(column1);                                       # 将列内容统一大小写 #
+run;
+
+# 合并列不完全相同的表 #
+proc sort data=work.abc out=input-table1;
+  by column1;
+run;
+proc sort data=work.def out=input-table2;
+  by column1;
+run;                                                              # 先按照指定列给要合并的表排序 #
+
+data output-table;
+  merge input-table1 input-table2;                                # 如果列名不一样，需要rename为同名 #
+  by column1;                                                     # 按照指定列为共同列合并 #
+run;
+
+
