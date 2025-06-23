@@ -1,0 +1,10 @@
+# narrow to wide #
+data class_wide;
+	set pg2.class_test_narrow;
+	by Name;                                                 # 记得提前排序，并选择排序参数 #
+	retain Name Math Reading;                                # retain语句保存同name中保存的参数，没有retain记录为缺失 #
+	keep Name Math Reading;
+	if TestSubject="Math" then Math=TestScore;               # narrow to wide语句
+	else if TestSubject="Reading" then Reading=TestScore;    # narrow to wide语句
+	if last.name=1 then output;                              # 仅保留name中最后一行，也就是数据完整正确的一行 #
+run;
