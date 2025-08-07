@@ -1,5 +1,6 @@
 # 用SQL来合并表 #
 proc sql;
+  creat table table_name as                        # SQL默认生成report,本statement用于建立table并命名为table_name #
   select tableA.E, A, B, C*2.5 as H, D format=5.1;           # 选择需要的列，并指定哪个表的同名列作为新表的列。可以直接修改列的值并生成新列（把C列的值乘2.5，生成H列）。然后确定格式 #
   from tableA inner join tableB                    # 选择要合并的表A和表B #             
   on tableA.E=tableB.E                             # 选择作为合并标准的列 #
