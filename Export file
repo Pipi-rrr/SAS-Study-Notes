@@ -1,0 +1,10 @@
+# 导出文件 #
+proc export date= file_name  outfile= "&path/name/filename.csv" dbms=csv replace;     # data=指定要输出的文件，outfile=""指定输出文件路径，名称和格式 #
+run;
+
+libname outxl xlsx "&path/excel文件路径和文件名";           # 讲文件输出到指定Excel文件中的worksheet #
+data outxl.file1;                                        # 建立在outxl文件中的worksheet #
+  set file1;
+run;
+
+libname outxl clear;                                     # 确定将建立的worksheet导入到outxl文件中 #
