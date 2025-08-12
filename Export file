@@ -11,7 +11,8 @@ run;
 libname outxl clear;                                     # 确定将建立的worksheet导入到outxl文件中 #
 
 # 导出PDF文件 #
-ods pdf file="&path/文件路径/文件名.pdf" pdftoc=1;         # pdftoc=1设置为仅显示第一级的书签，不展开 #
+ods pdf file="&path/文件路径/文件名.pdf" 
+        pdftoc=1 startpage=no;                           # pdftoc=1设置为仅显示第一级的书签，不展开;startpage=no设置为不分页 #
 
 ods proclable 'The title of file1';                      # 设置书签标题 #
 title 'The title of file1';
