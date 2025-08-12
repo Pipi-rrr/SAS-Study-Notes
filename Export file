@@ -19,3 +19,22 @@ proc print data=file1;
 run;
 
 ods pdf close;
+
+# 将每个report导入到不同的Excel workbook中 #
+ods excel file="&path/filename.xlxs"
+          options(embedded_title="yes")                 # embedded_title="yes"打开设置worksheet开关 #
+          style= analysis;                              # 改变外观 #
+ods excel options(sheet_name=" Name of first worksheet"); # 设置具体worksheet名，对于不同的worksheet的改名，本行都需要重新写#
+title " Name of first worksheet";
+proc freq data=first_worksheet;
+run;
+
+ods excel options(sheet_name=" Name of Second worksheet"); # 另一个worksheet名字设置 #
+title " Name of Second worksheet";
+proc freq data=Second_worksheet;
+run;
+
+ods excel close;
+
+
+
