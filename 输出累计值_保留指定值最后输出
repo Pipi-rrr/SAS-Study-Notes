@@ -1,0 +1,24 @@
+proc sort data=cr.employee_current out=emp_sort;
+	by Department Salary;
+run;
+
+data dept_salary;
+	set emp_sort;
+	retain LowSalaryJob;                 # 在Department扫描中，保留LowSalaryJob的值 #
+	by Department;
+
+	if first.Department then
+		do;
+			TotalDeptSalary=0;
+			LowSalaryJob=JobTitle;
+		end;
+	TotalDeptSalary+Salary;             # 累计计算要放在重置语句后面 #
+
+	if last.department then
+		do;
+			HighSalaryJob=JobTitle;
+			output;                         # 将相同Department最后的值输出 #
+		end;
+	keep Department TotalDeptSalary HighSalaryJob LowSalaryJob;
+	format TotalDeptSalary dollar12.;
+run;
