@@ -23,10 +23,14 @@ data 111;
   set 222;
   YTDrain + DailyRain;     
 run;
-*****************************************************
-*  sum statement can automatically do:              *
-*  1. creat new accumulating column;                *
-*  2. set initial value of new column to 0;         *
-*  3. retain value of new column;                   *
-*  4. add right column to accumulate for each row.  *
-*****************************************************
+________________________________________________________________________________________________________________
+# 使用proc means来按分类累计计算 #
+
+proc means data=cr.employee_current noprint;       # noprint使结果为table #
+    var Salary;                                    # 计算salary的值 #
+    class Department;                              # 按照Department分类，计算重复Department的Salary #
+    output out=salary sum=TotalSalary;             # 输出到指定表格，积累计算的值为TotalSalary列 #
+    ways 1;                                        # 显示格式 “
+run;
+
+
