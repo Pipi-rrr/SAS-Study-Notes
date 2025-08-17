@@ -16,7 +16,7 @@ proc format;
                  60 - high = 'Above Average'       # 大于60的任何数 #
 run;
 
-# put()的用法：类似于format，但是可以生成新列 #
+# put()的用法：类似于format，但是可以生成新列。将任何值转化为character string格式。format.部分是numeric格式，用以读取put()中的内容 #
 newChar = put(sourceValue , format.);
 newChar = put(sourceValue , z5.);                # z5. 是将制定的数字列转化为5个数字的char column，例如1转化为00001，234转化为0234 #
 -------------------------------------------------------------------------------------------------------------------------------------------
