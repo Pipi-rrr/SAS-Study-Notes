@@ -1,3 +1,7 @@
+SUM(of col:)     # 计算所有以col起头的列的总和 #
+
+SUM(of col1--col4) #计算col1-col4的总和，中间是两条杠-- #
+
 CEIL (number)    # 返回较大整数（即数轴上靠右的整数），3.2返回4，-3.8返回-3
 
 FLOOR (number)   # 和int()一样 #
