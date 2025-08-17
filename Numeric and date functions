@@ -12,6 +12,8 @@ datepart()       # 返回含有日期和时间的列的日期值 #
 
 timepart()       # 返回含有日期和时间的时间值 #
 
+anydtdte10.      # SAS自动识别宽度为10的日期格式。如果不指定，那么超过9的格式将无法被识别 #
+
 # 返回两个时间点之间的时间间隔 #
 INTCK('interval', start-date, end-date, 'method')   
 # ‘interveal'可以是year, month, week, weekday, hour。即两个时间点的时间间隔单位。
