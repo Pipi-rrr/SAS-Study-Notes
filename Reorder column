@@ -1,0 +1,4 @@
+data aaa;
+    retain apple book banana pearl heart;      # 在set之前设定好需要的列的顺序 #
+    set bbb;
+run;
