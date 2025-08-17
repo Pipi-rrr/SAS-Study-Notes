@@ -21,6 +21,20 @@ newChar = put(sourceValue , format.);
 newChar = put(sourceValue , z5.);                # z5. 是将制定的数字列转化为5个数字的char column，例如1转化为00001，234转化为0234 #
 -------------------------------------------------------------------------------------------------------------------------------------------
 # 从一个表中导入Format #
+需要先创建含有FmtName,start,label三个列的表，如果是范围的话还需要再加一个end列。FmtName是Format Name，如果定义character格式要加$;Star是待format部分;Label是format后部分。
+
+方法1️⃣：
+data sbdata;
+	set sourcedata;
+	FmtName="$newformat";
+	start=KeyName;
+	Label=FullName;
+	keep FmtName start Label;
+run;
+proc format cntlin=sbdata;
+run;
+
+方法2️⃣：
 data sbdata;                                                         # 定义一个表 #
     retain FmtName '$sbfmt';                                         # 定义FmtName，设置格式名为 $sbfmt #
     set pg2.storm_subbasincodes(rename=(Sub_Basin=Start 
