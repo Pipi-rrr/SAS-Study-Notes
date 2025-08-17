@@ -1,0 +1,15 @@
+CEIL (number)    # 返回较大整数（即数轴上靠右的整数），3.2返回4，-3.8返回-3
+
+FLOOR (number)   # 和int()一样 #
+
+INT (number)     # 返回较小整数（即数轴上靠左的整数），3.8返回3，-3.1返回-4 #
+
+datepart()       # 返回含有日期和时间的列的日期值 #
+
+timepart()       # 返回含有日期和时间的时间值 #
+
+# 返回两个时间点之间的时间间隔 #
+INTNK('interval', start-date, end-date, 'method')   
+# ‘interveal'可以是year, month, week, weekday, hour。即两个时间点的时间间隔单位。
+# method有两种，discrete是标准划分（即周一到周日为一周，周一周日间为划分间隔），这是默认method。
+  continuous是以完整时间周期为划分（即7天为一周），写为'C'。 #
