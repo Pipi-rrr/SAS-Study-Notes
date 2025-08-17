@@ -9,7 +9,14 @@ datepart()       # 返回含有日期和时间的列的日期值 #
 timepart()       # 返回含有日期和时间的时间值 #
 
 # 返回两个时间点之间的时间间隔 #
-INTNK('interval', start-date, end-date, 'method')   
+INTCK('interval', start-date, end-date, 'method')   
 # ‘interveal'可以是year, month, week, weekday, hour。即两个时间点的时间间隔单位。
 # method有两种，discrete是标准划分（即周一到周日为一周，周一周日间为划分间隔），这是默认method。
   continuous是以完整时间周期为划分（即7天为一周），写为'C'。 #
+
+# 返回距离指定时间点的指定时间间隔的时间值 #
+INTNK('interval',start,increment,'postition of SAS dates in the interval')
+
+e.g.
+intnk('month',Date,2)      # 指定日期的2个月后的1号 （默认是1号） #
+intnk('year',Date,-2,'middle')   # 指定日期的2两年的15号。‘middle'是15号，'end'是该月最后一日，'same'是指定日期同样的时间点 #
