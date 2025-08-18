@@ -1,0 +1,5 @@
+do until (expression);     # expression为真时停止 #
+end;                       # 在end;进行条件检查，所以至少会循环1次 #
+
+do while (expression);     # expression为真时继续 #  # 在开头进行条件检查，条件不符则可能循环0次 #
+end;
