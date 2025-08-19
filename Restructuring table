@@ -25,6 +25,28 @@ data work.camping_narrow(drop=Tent RV Backcountry);
 	CampCount=Backcountry;
 	output;
 run;
+------------------------------------------------------------------------------------------------------------------------
+# narrow to wide #
+proc transpose data=aaa out=bbb(drop=_Name_);
+	var NeededValue;                           	# 窄转宽的目标值 #
+	by WantedOrder;								# 指定顺序，最终的输出结果是每个WantedOrder占一行 #
+	id widename;								# 用widename的值来当新列名，如widename1, widename2,widename3 #
+run;
+
+# wide to narrow #
+proc transpose data=aaa out=bbb（drop=_label_) name=NewColumnName;   # name=是把宽列的各个列名重新命名 #
+	var NeededValue1 NeededValue2 NeededValue3;                      # 宽转窄的目标值 #
+	by WantedOrder;								# 指定顺序，最终的输出结果是每个WantedOrder占一行 #
+run;
+
+
+
+
+
+
+
+
+
 
 
 
