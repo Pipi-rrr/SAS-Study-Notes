@@ -1,4 +1,8 @@
 call routine(argument1,argument2...);
+# 用于改变列的值，不返回值 #
+
+e.g.
+call sortn(of quiz1-quiz5);   # 重新按照大小排列quiz1-quiz5的值，小的在前 #
 
 # 以下表达方式可以在call rountine和function里使用： #
 col1-col2        选择同名不同数字的列       e.g.   将column1到column4的值标记为缺失".": call missing(of column1-column4)    计算column1到column4的均值： mean(of column1-column4)
